@@ -42,7 +42,6 @@
             <select id="conversion" name="conversion" class="form-control" required>
               <option value="1">Kilogramos a Libras</option>
               <option value="2">Libras a Kilogramos</option>
-              <option value="3">Otra Conversión</option>
             </select>
           </div>
           <br>

@@ -15,13 +15,20 @@
 
     // Get data from form
     $kilos = $_POST['kilos']; // replace 'kilos' with the actual name of your input field
+    $conversion = $_POST['conversion'];
 
-    // Process data (convert kilos to pounds)
-    $pounds = $kilos * 2.20462;
+    // Process data
+    if ($conversion == 1) {
+        // Kilogramos a Libras
+        $resultado = $kilos * 2.20462;
+    } elseif ($conversion == 2) {
+        // Libras a Kilogramos
+        $resultado = $kilos / 2.20462;
+    }
 
     // Prepare SQL statement
     $stmt = $conn->prepare("INSERT INTO results (lb, kg) VALUES (?, ?)");
-    $stmt->bind_param("dd", $pounds, $kilos);
+    $stmt->bind_param("dd", $resultado, $kilos);
 
     // Execute SQL statement
     if ($stmt->execute()) {
