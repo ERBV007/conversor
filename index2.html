@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Kilos a Libras</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta3/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1 class="text-center my-4">Conversor de Kilos a Libras</h1>
+<p class="text-center mb-4">Este es mi parrafo</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form>
+                <div class="mb-3">
+                    <label for="kilos" class="form-label">Ingrese el Peso en Kg</label>
+                    <input id="kilos" type="number" class="form-control">
+                </div>
+                <div class="text-end">
+                    <button type="button" class="btn btn-primary" onclick="calculate()">Calcular</button>
+                </div>
+            </form>
+            <p id="result" class="mt-3"></p>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="text-center">
+        <h2>Resultados</h2>
+    </div>
+    <hr>
+    <table class="table table-bordered table-striped" id="results">
+        <thead>
+            <tr>
+                <th>Kg</th>
+                <th>Lb</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+<hr>
+
+<script>
+    function calculate() {
+        const kilos = document.getElementById('kilos').value;
+        const pounds = kilos * 2.20462;
+        document.getElementById('result').innerText = `${kilos} kg son ${pounds.toFixed(2)} libras.`;
+
+        const table = document.getElementById('results').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+        cell1.innerText = kilos;
+        cell2.innerText = pounds.toFixed(2);
+        cell3.innerHTML = '<button class="btn btn-danger btn-sm" onclick="deleteRow(this)">Eliminar</button>';
+    }
+
+    function deleteRow(btn) {
+        const row = btn.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js">
+</script>
+</body>
+</html>

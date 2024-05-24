@@ -1,0 +1,33 @@
+$color-green: #87A96B;
+
+h2 {
+    color: blue !important;
+    
+}
+
+.sub-left{
+    color: $color-green  !important;
+}
+
+
+.parrafo-gris{
+    background-color: rgb(235, 229, 229);
+}
+
+.parrafo-verde{
+    p{
+        font-size: 2rem;
+      
+  }
+  
+    a {
+      color: white;
+      font-size: 2rem;
+      text-decoration: none;
+  
+  }
+  
+    a:hover {
+      color: blueviolet;
+  }
+}
